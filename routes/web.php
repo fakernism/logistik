@@ -65,7 +65,7 @@ Route::post('barang-keluar-delete', [BarangKeluarController::class, 'destroy'])-
 
 Route::get('bpp-sb', [BppSbController::class, 'index'])->name('bppsb.index');
 Route::get('bpp-sb-tambah', [BppSbController::class, 'create'])->name('bppsb.create');
-Route::get('bpp-sb-store', [BppSbController::class, 'store'])->name('bppsb.store');
+Route::post('bpp-sb-store', [BppSbController::class, 'store'])->name('bppsb.store');
 Route::get('bpp-sb-edit', [BppSbController::class, 'edit'])->name('bppsb.edit');
 Route::get('bpp-sb-delete', [BppSbController::class, 'delete'])->name('bppsb.delete');
 

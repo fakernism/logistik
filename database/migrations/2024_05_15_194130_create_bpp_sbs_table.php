@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('bpp_sbs', function (Blueprint $table) {
             $table->id();
             $table->string('nobppsb')->unique();
+            $table->string('nosamb')->unique();
             $table->string('namapel');
             $table->string('alamatpel');
             $table->string('diterima');

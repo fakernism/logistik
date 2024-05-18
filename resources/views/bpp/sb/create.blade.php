@@ -15,20 +15,35 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">Form Tambah BPP Sambungan Baru (SB)</h4>
-                    <p class="card-description">Read the <a href="https://jqueryvalidation.org/" target="_blank"> Official jQuery Validation Documentation </a>for a full list of instructions and other options.</p>
-                    <form class="cmxform" action="{{ route('bppsb.create') }}" method="POST" enctype="multipart/form-data">
+                    {{-- <p class="card-description">Read the <a href="https://jqueryvalidation.org/" target="_blank"> Official jQuery Validation Documentation </a>for a full list of instructions and other options.</p> --}}
+                    <form class="cmxform" action="/bpp-sb-store" method="POST" enctype="multipart/form-data">
+                        @csrf
                         <fieldset>
+                            <div class="form-group">
+                                <label for="nobppsb">Nomor BPP SB</label>
+                                <input id="nobppsb" class="form-control" name="nobppsb" type="text" value="{{ $kd.'/BPP/'.date('m').'/'.date('Y') }}" readonly>
+                                @error('nobppsb') <span
+                                                    class="text-danger small">{{ $message }}</span> @enderror
+                            </div>
+                            <div class="form-group">
+                                <label for="nosamb">No. Sambung</label>
+                                <input id="nosamb" class="form-control" name="nosamb" type="text">
+                                @error('nosamb') <span
+                                                    class="text-danger small">{{ $message }}</span> @enderror
+                            </div>
                             <div class="form-group">
                                 <label for="namapel">Nama Pelanggan</label>
                                 <input id="namapel" class="form-control" name="namapel" type="text">
+                                @error('namapel') <span
+                                                    class="text-danger small">{{ $message }}</span> @enderror
                             </div>
                             <div class="form-group">
                                 <label for="alamatpel">Alamat</label>
                                 <input id="alamatpel" class="form-control" name="alamatpel" type="text">
                             </div>
                             <div class="form-group">
-                                <label for="clampsaddle">Clamp Saddle</label>
-                                <input id="clampsaddle" class="form-control" name="clampsaddle" type="text">
+                                <label for="clampsaddleUk">Clamp Saddle Ukuran</label>
+                                <input id="clampsaddleUk" class="form-control" name="clampsaddleUk" type="text">
                             </div>
                             <div class="form-group">
                                 <label for="created_at">Tanggal</label>

@@ -305,6 +305,7 @@
 	<!-- end custom js for this page -->
 
     <script type="text/javascript">
+     var table;
         $(document).ready(function() {
             var table = $('#bppsb-table').DataTable({
 				dom: 'rtip',
@@ -325,9 +326,17 @@
 						data: 'nobppsb',
 						name: 'nobppsb',
 					},
+					{ data: 'created_at', name: 'created_at', orderable: false,
+                        render: function(data, type, row){
+                            if(type === "sort" || type === "type"){
+                                return data;
+                            }
+                            return moment(data).format("DD-MM-YYYY");
+                        }
+                    },
 					{
-						data: 'tanggal',
-						name: 'tanggal'
+						data: 'nosamb',
+						name: 'nosamb'
 					},
 					{
 						data: 'namapel',
@@ -338,8 +347,8 @@
 						name: 'alamatpel'
 					},
 					{
-						data: 'clampsaddle',
-						name: 'clampsaddle'
+						data: 'clampsaddleUk',
+						name: 'clampsaddleUk'
 					},
 					{
 						data: 'diterima',
@@ -350,10 +359,10 @@
                         name: 'action'
                     },
                 ],
-				columnDefs: [{
-                    targets: "no-sort",
-                    orderable: false,
-                }],
+				columnDefs: [
+                    { targets: "no-sort", orderable: false, },
+                    { targets: [0,1,2,3,4,6,7,8], className: "text-center", },
+                ],
 				order       : [[0, 'asc']],
                 buttons: [
 				{
@@ -384,11 +393,11 @@
         });
 
         $('#btnExcelBppSb').on('click', function() {
-            table.button('.buttons-excel').trigger();
+            table.button('.buttons-excel-Bpp-Sb').trigger();
         });
 
         $('#btnPrintBppSb').on('click', function() {
-            table.button('.buttons-print').trigger();
+            table.button('.buttons-print-Bpp-Sb').trigger();
         });
 	</script>
 

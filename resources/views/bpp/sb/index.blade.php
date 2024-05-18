@@ -52,6 +52,7 @@
                                     <th>No</th>
                                     <th>Nomor BPP</th>
                                     <th>Tanggal</th>
+                                    <th>No. Sambung</th>
                                     <th>Nama</th>
                                     <th>Alamat</th>
                                     <th>Clamp Saddle</th>
@@ -69,84 +70,5 @@
     </div>
 </div>
 
-{{-- Start Modal --}}
-
-<div class="modal fade" id="barangKeluar-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Barang Keluar</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <form action="javascript:void(0)" id="barangKeluarForm" name="barangKeluarForm" class="form-horizontal" method="POST" enctype="multipart/form-data">
-            <div class="modal-body">
-                <input type="hidden" name="id" id="id">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="form-group">
-                            <label for="barang" class="col-form-label">Barang</label>
-                            <select name="kodebarang" id="kodebarang" class="js-example-basic-single" style="width: 100%">
-                                <option>Pilih Barang</option>
-                                {{-- @foreach ($barang as $br)
-                                    <option value="{{ $br->kodebarang }}">{{ $br->kodebarang }} - {{ $br->namabarang }}</option>
-                                @endforeach --}}
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="form-group">
-                            <label for="harga" class="col-form-label">Harga</label>
-                            <input class="form-control" id="harga" name="harga" placeholder="Harga" maxlength="50" required="" readonly>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="form-group">
-                            <label for="jumlah_keluar" class="col-form-label">Jumlah Keluar</label>
-                            <input class="form-control" id="jumlah_keluar" name="jumlah_keluar" placeholder="Jumlah Keluar" maxlength="50" required="">
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="form-group">
-                            <label for="created_at" class="col-form-label">Tanggal</label>
-                            <input class="form-control date datepicker" id="created_at" name="created_at" value="{{ date("d-m-Y") }}" maxlength="50" required="">
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="form-group">
-                            <label for="stok" class="col-form-label">Stok Sekarang</label>
-                            <div class="input-group">
-                                <input type="text" id="stok" name="stok" class="form-control" readonly>
-                                <div id="spansatuan" class="input-group-append">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="form-group">
-                            <label for="total_stok" class="col-form-label">Total</label>
-                            <input class="form-control" id="total_stok" name="total_stok" maxlength="50" required="" readonly>
-                        </div>
-                    </div>
-                    <div class="col-sm-12">
-                        <div class="form-group">
-                            <label for="lampiran" class="col-form-label">Lampiran</label>
-                            <input class="form-control" id="lampiran" name="lampiran" placeholder="Lampiran" maxlength="50" required="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                <button type="submit" class="btn btn-primary" id="btn-save">Simpan</button>
-            </div>
-        </form>
-      </div>
-    </div>
-</div>
-
-
-{{-- End Modal --}}
 
 @endsection
