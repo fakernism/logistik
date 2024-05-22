@@ -18,6 +18,7 @@
 	<link rel="stylesheet" href="{{ asset('assets/fonts/feather-font/css/iconfont.css') }}">
 	<link rel="stylesheet" href="{{ asset('assets/vendors/flag-icon-css/css/flag-icon.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/vendors/datatables.net-bs4/dataTables.bootstrap4.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendors/select2/select2.min.css') }}">
 	<!-- endinject -->
     <!-- Layout styles -->
 	<link rel="stylesheet" href="{{ asset('assets/css/demo_1/style.css') }}">
@@ -302,6 +303,10 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 
+    {{-- Select2 --}}
+    <script src="{{ asset('assets/vendors/select2/select2.min.js') }}"></script>
+    <script src="{{ asset('assets/js/select2.js') }}"></script>
+
 	<!-- end custom js for this page -->
 
     <script type="text/javascript">
@@ -404,6 +409,40 @@
     <script>
         $('.datepicker').datepicker({
             format: 'dd-mm-yyyy',
+        });
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            // Event delegation for adding new form-barang
+            $(document).on('click', '.btnadd', function(e) {
+                e.preventDefault();
+                // $('.js-example-basic-single').select2('destroy');
+                // var newFormGroup = $('.form-barang').first().clone();
+                // $('#container-barang').append(newFormGroup);
+
+                var newFormGroup = $('.form-barang').first().clone();
+                // newFormGroup.select2('destroy');
+
+                // Remove any existing select2 elements to avoid duplication issues
+                newFormGroup.find('.select2-container').remove();
+
+                // Append the cloned form group
+                $('#container-barang').append(newFormGroup);
+
+                // Initialize select2 on the newly added element
+                newFormGroup.find(".js-example-basic-single").select2();
+            });
+
+            // Event delegation for removing form-barang
+            $(document).on('click', '.btnremove', function(e) {
+                e.preventDefault();
+
+                // Check if there are more than one form-barangs before removing
+                if ($('.form-barang').length > 1) {
+                    $(this).closest('.form-barang').remove();
+                }
+            });
         });
     </script>
 
